@@ -1,14 +1,19 @@
 require_relative '../lib/robot'
 require_relative '../lib/play'
 
-program_on = true
+toy_robot = ToyRobot.new
+toy_robot.intro
+puts "Place your robot: \n"
+first_command = gets.chomp.downcase
+until first_command == 'place'
+  puts "Must place a Robot first"
+  first_command = gets.chomp.downcase
+end
 
-while program_on
+robot = Robot.new
+robot.place(toy_robot.table)
 
-  toy_robot = ToyRobot.new
-  toy_robot.intro
-
-  while toy_robot.current_command != 'exit'
+  while toy_robot.program_on
     puts "Digit a command: \n"
     toy_robot.current_command = gets.chomp.downcase
     case toy_robot.current_command
@@ -23,9 +28,8 @@ while program_on
       robot.report
     when 'exit'
       puts 'Thanks for playing around :)'
-      program_on = false
+      toy_robot.program_on = false
     else
       puts 'Digit a valid command: Place, Move, Rotate, Report or Exit'
     end
   end
-end
