@@ -22,8 +22,10 @@ while toy_robot.program_on
     robot.place(toy_robot.table)
   when 'move'
     robot.move(robot.f_orientation)
-  when 'rotate'
-    robot.rotate
+  when 'left'
+    robot.left
+  when 'right'
+    robot.right
   when 'report'
     robot.report
   when 'exit'

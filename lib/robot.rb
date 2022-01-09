@@ -52,32 +52,18 @@ class Robot
     end
   end
 
-  def rotate
-    choices = %w[right left]
-    puts 'Choose a side to rotate your Robot!'
-    side = gets.chomp.downcase
-    until choices.include?(side)
-      puts 'Choose Left or Right'
-      side = gets.chomp.downcase
-    end
-    if @f_orientation == 'north' && side == 'left'
-      @f_orientation = 'west'
-    elsif @f_orientation == 'north' && side == 'right'
-      @f_orientation = 'east'
-    elsif @f_orientation == 'east' && side == 'left'
-      @f_orientation = 'north'
-    elsif @f_orientation == 'east' && side == 'right'
-      @f_orientation = 'south'
-    elsif @f_orientation == 'south' && side == 'left'
-      @f_orientation = 'west'
-    elsif @f_orientation == 'south' && side == 'right'
-      @f_orientation = 'east'
-    elsif @f_orientation == 'west' && side == 'left'
-      @f_orientation = 'north'
-    elsif @f_orientation == 'west' && side == 'right'
-      @f_orientation = 'south'
-    end
-    puts @f_orientation
+  def left
+    @f_orientation = 'west' if @f_orientation == 'north'
+    @f_orientation = 'north' if @f_orientation == 'west'
+    @f_orientation = 'north' if @f_orientation == 'east'
+    @f_orientation = 'west' if @f_orientation == 'south'
+  end
+
+  def right
+    @f_orientation = 'east' if @f_orientation == 'north'
+    @f_orientation = 'south' if @f_orientation == 'west'
+    @f_orientation = 'south' if @f_orientation == 'east'
+    @f_orientation = 'east' if @f_orientation == 'south'
   end
 
   def report
