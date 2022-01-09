@@ -24,12 +24,14 @@ while toy_robot.program_on
     robot.move(robot.f_orientation)
   when 'left'
     robot.left
+    puts robot.f_orientation
   when 'right'
     robot.right
+    puts robot.f_orientation
   when 'report'
     robot.report
   when 'exit'
-    puts 'Thanks for playing around :)'
+    toy_robot.goodbye
     toy_robot.program_on = false
   else
     puts 'Digit a valid command: Place, Move, Rotate, Report or Exit'

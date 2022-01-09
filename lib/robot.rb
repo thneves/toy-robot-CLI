@@ -10,29 +10,37 @@ class Robot
     @f_orientation = nil
   end
 
-  def place(range)
-    orientation = %w[north south west east]
-
-    puts 'Place a X position between 0 and 4'
+  def place_x(range)
     @x_position = gets.chomp.to_i
     until range.include?(@x_position)
       puts 'Must set a X valid place on table!'
       @x_position = gets.chomp.to_i
     end
+    @x_position
+  end
 
-    puts 'Place a Y position between 0 and 4'
+  def place_y(range)
     @y_position = gets.chomp.to_i
     until range.include?(@y_position)
       puts 'Must set a Y valid place on table!'
       @y_position = gets.chomp.to_i
     end
+    @y_position
+  end
 
-    puts 'choose where the robot will be facing: north, south, west or east'
+  def place_f
+    orientation = %w[north south west east]
     @f_orientation = gets.chomp
     until orientation.include?(@f_orientation)
-      puts 'must choose a valid facing position'
+      puts 'Must choose a valid facing position'
       @f_orientation = gets.chomp
     end
+    @f_orientation
+  end
+
+  def place(range)
+    puts 'Place X,Y,F'
+    puts "Robot placed at X: #{place_x(range)}, Y: #{place_y(range)}, F: #{place_f}"
   end
 
   def move_message
@@ -53,20 +61,18 @@ class Robot
   end
 
   def left
-    @f_orientation = 'west' if @f_orientation == 'north'
-    @f_orientation = 'north' if @f_orientation == 'west'
-    @f_orientation = 'north' if @f_orientation == 'east'
-    @f_orientation = 'west' if @f_orientation == 'south'
+    return @f_orientation = 'west' if @f_orientation == 'north' || @f_orientation == 'south'
+    return @f_orientation = 'north' if @f_orientation == 'west' || @f_orientation == 'east'
   end
 
   def right
-    @f_orientation = 'east' if @f_orientation == 'north'
-    @f_orientation = 'south' if @f_orientation == 'west'
-    @f_orientation = 'south' if @f_orientation == 'east'
-    @f_orientation = 'east' if @f_orientation == 'south'
+    return @f_orientation = 'east' if @f_orientation == 'north' || @f_orientation == 'south'
+    return @f_orientation = 'south' if @f_orientation == 'west' || @f_orientation == 'east'
   end
 
   def report
-    puts "Robot is current at location => X:#{@x_position}, Y:#{@y_position}, F: #{@f_orientation}"
+    puts '--------------------------------------------------'.red
+    puts "  ROBOT CURRENT LOCATION IS:  X: #{@x_position}, Y: #{@y_position}, F: #{@f_orientation.capitalize}"
+    puts '--------------------------------------------------'
   end
 end

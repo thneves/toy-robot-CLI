@@ -12,4 +12,10 @@ module Messages
     puts 'EXIT -> Quit the program :)'
     puts "It's all case insensitive!"
   end
+
+  def goodbye
+    puts '-----------------------------------------'
+    puts '         THANKS FOR PLAYING :)            '
+    puts '-----------------------------------------'
+  end
 end
