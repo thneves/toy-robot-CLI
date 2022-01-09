@@ -13,65 +13,51 @@ class Robot
   def place(range)
     orientation = %w[north south west east]
 
-    puts "Place a X position between 0 and 4"
+    puts 'Place a X position between 0 and 4'
     @x_position = gets.chomp.to_i
     until range.include?(@x_position)
-      puts  "Must set a X valid place on table!"
+      puts 'Must set a X valid place on table!'
       @x_position = gets.chomp.to_i
     end
-    
-    puts "Place a Y position between 0 and 4"
+
+    puts 'Place a Y position between 0 and 4'
     @y_position = gets.chomp.to_i
     until range.include?(@y_position)
-      puts "Must set a Y valid place on table!"
+      puts 'Must set a Y valid place on table!'
       @y_position = gets.chomp.to_i
     end
 
-    puts "choose where the robot will be facing: north, south, west or east"
+    puts 'choose where the robot will be facing: north, south, west or east'
     @f_orientation = gets.chomp
     until orientation.include?(@f_orientation)
-      puts "must choose a valid facing position"
+      puts 'must choose a valid facing position'
       @f_orientation = gets.chomp
     end
   end
 
+  def move_message
+    puts 'Cannot move outside the table!'
+  end
+
   def move(orientation)
-    orientation = @f_orientation
-    message = 'Cannot move outside the table!'
     case orientation
-    when 'west'
-      if @x_position - 1 < 0
-        puts message
-      else
-        @x_position -= 1
-      end
     when 'north'
-      if @y_position - 1 < 0
-        puts message
-      else
-        @y_position -= 1
-      end
+      (@y_position - 1).negative? ? move_message : @y_position -= 1
     when 'south'
-      if @y_position + 1 > 4
-        puts message
-      else
-        @y_position += 1
-      end
+      @y_position + 1 > 4 ? move_message : @y_position += 1
     when 'east'
-      if @x_position + 1 > 4
-        puts message
-      else
-        @x_position += 1
-      end
+      @x_position + 1 > 4 ? move_message : @x_position += 1
+    when 'west'
+      (@x_position - 1).negative? ? move_message : @x_position -= 1
     end
   end
 
   def rotate
     choices = %w[right left]
-    puts "Choose a side to rotate your Robot!"
+    puts 'Choose a side to rotate your Robot!'
     side = gets.chomp.downcase
     until choices.include?(side)
-      puts "Choose Left or Right"
+      puts 'Choose Left or Right'
       side = gets.chomp.downcase
     end
     if @f_orientation == 'north' && side == 'left'
@@ -95,6 +81,6 @@ class Robot
   end
 
   def report
-    puts "Robot is current at location X:#{@x_position.to_s}, Y:#{@y_position.to_s}, facing: #{@f_orientation}"
+    puts "Robot is current at location => X:#{@x_position}, Y:#{@y_position}, F: #{@f_orientation}"
   end
 end

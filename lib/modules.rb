@@ -11,9 +11,4 @@ module Messages
     puts 'EXIT -> Quit the program :)'
     puts "It's all case insensitive!"
   end
-
-  def initial_command
-    first_place = gets.chomp.downcase
-    first_place
-  end
 end
