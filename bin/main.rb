@@ -18,6 +18,7 @@ while program_on
   # report -> show current location and where the robot is facing
   robot = Robot.new
   robot.place
+  puts "#{robot.x_position}"
   program_on = false
 end
 
