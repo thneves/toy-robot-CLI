@@ -14,7 +14,7 @@ while program_on
     case toy_robot.current_command
     when 'place'
       robot = Robot.new
-      robot.place
+      robot.place(toy_robot.table)
     when 'move'
       robot.move(robot.f_orientation)
     when 'rotate'
