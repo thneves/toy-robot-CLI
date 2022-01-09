@@ -24,6 +24,10 @@ while program_on
   robot.move(robot.f_orientation)
   puts robot.x_position.to_s
   puts robot.y_position.to_s
+  robot.rotate
+  robot.move(robot.f_orientation)
+  puts robot.x_position.to_s
+  puts robot.y_position.to_s
   program_on = false
 end
 
