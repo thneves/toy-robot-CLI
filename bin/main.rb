@@ -22,24 +22,10 @@ while program_on
     when 'report'
       robot.report
     when 'exit'
-      puts "Thanks for playing around :)"
+      puts 'Thanks for playing around :)'
       program_on = false
     else
-      puts "Digit a valid command: Place, Move, Rotate, Report or Exit"
+      puts 'Digit a valid command: Place, Move, Rotate, Report or Exit'
     end
   end
-  # robot = Robot.new
-  # robot.place
-  # puts robot.x_position.to_s
-  # puts robot.y_position.to_s
-  # robot.move(robot.f_orientation)
-  # puts robot.x_position.to_s
-  # puts robot.y_position.to_s
-  # robot.rotate
-  # robot.move(robot.f_orientation)
-  # puts robot.x_position.to_s
-  # puts robot.y_position.to_s
-  # puts robot.report
-  # program_on = false
 end
-
