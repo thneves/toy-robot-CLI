@@ -14,11 +14,16 @@ while program_on
   # instruções
   # place -> posição x, posição y
   # facing -> north, south, west, east
+  # move -> move one position into facing direction
   # rotate -> left and right
   # report -> show current location and where the robot is facing
   robot = Robot.new
   robot.place
   puts robot.x_position.to_s
+  puts robot.y_position.to_s
+  robot.move(robot.f_orientation)
+  puts robot.x_position.to_s
+  puts robot.y_position.to_s
   program_on = false
 end
 
