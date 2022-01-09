@@ -28,6 +28,7 @@ while program_on
   robot.move(robot.f_orientation)
   puts robot.x_position.to_s
   puts robot.y_position.to_s
+  puts robot.report
   program_on = false
 end
 
