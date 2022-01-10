@@ -1,10 +1,7 @@
 class Robot
-  attr_accessor :current_robot
-  attr_reader :position, :orientation, :x_position, :y_position, :f_orientation
+  attr_reader :x_position, :y_position, :f_orientation
 
   def initialize
-    @position = nil
-    @orientation = nil
     @x_position = nil
     @y_position = nil
     @f_orientation = nil
@@ -13,7 +10,7 @@ class Robot
   def place_x(range)
     @x_position = gets.chomp.to_i
     until range.include?(@x_position)
-      puts 'Must set a X valid place on table!'
+      puts 'Must set a X valid place on table between 0 and 4!'
       @x_position = gets.chomp.to_i
     end
     @x_position
@@ -22,7 +19,7 @@ class Robot
   def place_y(range)
     @y_position = gets.chomp.to_i
     until range.include?(@y_position)
-      puts 'Must set a Y valid place on table!'
+      puts 'Must set a Y valid place on table between 0 and 4!'
       @y_position = gets.chomp.to_i
     end
     @y_position
@@ -32,7 +29,7 @@ class Robot
     orientation = %w[north south west east]
     @f_orientation = gets.chomp
     until orientation.include?(@f_orientation)
-      puts 'Must choose a valid facing position'
+      puts 'Must choose North, South, West or East'
       @f_orientation = gets.chomp
     end
     @f_orientation
@@ -71,7 +68,7 @@ class Robot
   end
 
   def report
-    puts '--------------------------------------------------'.red
+    puts '--------------------------------------------------'
     puts "  ROBOT CURRENT LOCATION IS:  X: #{@x_position}, Y: #{@y_position}, F: #{@f_orientation.capitalize}"
     puts '--------------------------------------------------'
   end

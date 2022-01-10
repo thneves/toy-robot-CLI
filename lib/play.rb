@@ -2,12 +2,11 @@ require_relative '../lib/modules'
 
 class ToyRobot
   include Messages
-  attr_accessor :table, :current_command, :current_robot, :program_on
+  attr_accessor :table, :current_command, :program_on
 
   def initialize
     @table = 0..4
     @current_command = ''
-    @current_robot = nil
     @program_on = true
   end
 end
