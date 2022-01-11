@@ -24,10 +24,8 @@ while toy_robot.program_on
     robot.move(robot.f_orientation)
   when 'left'
     robot.left
-    puts robot.f_orientation
   when 'right'
     robot.right
-    puts robot.f_orientation
   when 'report'
     robot.report
   when 'exit'
