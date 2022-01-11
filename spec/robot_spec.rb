@@ -14,14 +14,14 @@ describe Robot do
   end
 
   describe '#place_x' do
-    it 'places the robot X location' do
+    it 'places robot X location' do
       $stdin = x_location_input
       expect(test_robot.place_x(0..4)).to eql(2)
     end
   end
 
   describe '#place_y' do
-    it 'places the robot Y location' do
+    it 'places robot Y location' do
       $stdin = y_location_input
       expect(test_robot.place_y(0..4)).to eql(4)
     end
@@ -37,14 +37,14 @@ describe Robot do
   describe '#move' do
     subject { Robot.new }
 
-    it 'moves the robot one position to north' do
+    it 'moves robot one position to north' do
       subject.x_position = 2
       subject.y_position = 2
       subject.f_orientation = 'north'
       expect(subject.move('north')).to eql(1)
     end
 
-    it 'moves the robot one position to east' do
+    it 'moves robot one position to east' do
       subject.x_position = 2
       subject.y_position = 2
       subject.f_orientation = 'east'
@@ -61,7 +61,7 @@ describe Robot do
 
   describe '#left' do
     subject { Robot.new }
-    it 'changes robot position from north to west' do
+    it 'changes robot facing position from north to west' do
       subject.x_position = 0
       subject.y_position = 0
       subject.f_orientation = 'north'
@@ -71,7 +71,7 @@ describe Robot do
 
   describe '#right' do
     subject { Robot.new }
-    it 'changes robot position from north to east' do
+    it 'changes robot facing position from north to east' do
       subject.x_position = 0
       subject.y_position = 0
       subject.f_orientation = 'north'
