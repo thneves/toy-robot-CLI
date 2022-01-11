@@ -75,7 +75,7 @@ describe Robot do
       subject.x_position = 0
       subject.y_position = 0
       subject.f_orientation = 'north'
-      expect(subject.left).to eq('west')
+      expect(subject.right).to eq('east')
     end
   end
 end
