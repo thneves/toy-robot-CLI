@@ -1,4 +1,3 @@
-# toy-robot-CLI
 # Toy Robot
 
 This application consists in a simulation of a toy robot moving on a square tabletop, of dimensions 5x5.
