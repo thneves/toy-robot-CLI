@@ -10,10 +10,3 @@ class ToyRobot
     @program_on = true
   end
 end
-
-#   TO-DO
-#   - primeiro comando tem que ser PLACE
-#   - não rodar outros commandos sem o Robo primeiro
-#   - refactor PLACE input
-#   - refactor metodos for Robot class
-#   - criar testes

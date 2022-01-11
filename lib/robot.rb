@@ -1,5 +1,5 @@
 class Robot
-  attr_reader :x_position, :y_position, :f_orientation
+  attr_accessor :x_position, :y_position, :f_orientation
 
   def initialize
     @x_position = nil
@@ -27,10 +27,10 @@ class Robot
 
   def place_f
     orientation = %w[north south west east]
-    @f_orientation = gets.chomp
+    @f_orientation = gets.chomp.downcase
     until orientation.include?(@f_orientation)
       puts 'Must choose North, South, West or East'
-      @f_orientation = gets.chomp
+      @f_orientation = gets.chomp.downcase
     end
     @f_orientation
   end
@@ -44,6 +44,7 @@ class Robot
     puts 'Cannot move outside the table!'
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def move(orientation)
     case orientation
     when 'north'
@@ -56,6 +57,7 @@ class Robot
       (@x_position - 1).negative? ? move_message : @x_position -= 1
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def left
     return @f_orientation = 'west' if @f_orientation == 'north' || @f_orientation == 'south'
