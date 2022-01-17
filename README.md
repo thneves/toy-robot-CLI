@@ -3,6 +3,8 @@
 This application consists in a simulation of a toy robot moving on a square tabletop, of dimensions 5x5.
 The Robot can move one position at time to north, south, west or east, but cannot move outside of the table.
 
+![screenshot](./toyrobot.png)
+
 ## Live
 
 [Open Here](https://replit.com/@ThalesNeves/toy-robot-CLI#.replit)
