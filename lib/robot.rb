@@ -60,13 +60,17 @@ class Robot
   # rubocop:enable Metrics/CyclomaticComplexity
 
   def left
-    return @f_orientation = 'west' if @f_orientation == 'north' || @f_orientation == 'south'
-    return @f_orientation = 'north' if @f_orientation == 'west' || @f_orientation == 'east'
+    return @f_orientation = 'west' if @f_orientation == 'north'
+    return @f_orientation = 'south' if @f_orientation == 'west'
+    return @f_orientation = 'east' if @f_orientation == 'south'
+    return @f_orientation = 'north' if @f_orientation == 'east'
   end
 
   def right
-    return @f_orientation = 'east' if @f_orientation == 'north' || @f_orientation == 'south'
-    return @f_orientation = 'south' if @f_orientation == 'west' || @f_orientation == 'east'
+    return @f_orientation = 'east' if @f_orientation == 'north'
+    return @f_orientation = 'south' if @f_orientation == 'east'
+    return @f_orientation = 'west' if @f_orientation == 'south'
+    return @f_orientation = 'north' if @f_orientation == 'west'
   end
 
   def report
